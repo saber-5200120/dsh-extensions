@@ -1,0 +1,19 @@
+{
+  "name": "dsh-cursor-kit",
+  "version": "0.1.0",
+  "description": "Cursor-style checkpoints (/checkpoints, /rewind) and lint-after-edit for DeepSeek Harness",
+  "type": "module",
+  "main": "./index.mjs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saber-5200120/dsh-extensions.git",
+    "directory": "cursor-kit"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
