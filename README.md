@@ -12,6 +12,41 @@
 
 > 测试环境：macOS（Apple silicon）+ DSH Desktop 0.13.2 / 0.14.0。cursor-kit 用到了 DSH 的内部插件接口，DSH 大版本升级后可能需要更新。
 
+## 安装方法
+
+**前提条件**
+
+- macOS，已安装 DSH Desktop，并且**至少打开过一次**（安装脚本需要它的配置目录 `~/Library/Application Support/dsh-desktop/harness/profiles`）。
+- `git`（没有的话运行 `xcode-select --install`）。
+
+**1. 下载并运行安装脚本**
+
+```bash
+git clone https://github.com/saber-5200120/dsh-extensions.git
+cd dsh-extensions
+./cursor-kit/install.sh
+```
+
+这一步会安装 cursor-kit 插件和 `/review` 技能。只想装插件、不要 `/review` 的话，改用 `./cursor-kit/install.sh --no-review`。
+
+**2. 重启 DSH**
+
+在 DSH Desktop 菜单里选「DSH Desktop → 重启」。之后在输入框输入 `/checkpoints`、`/rewind` 或 `/review` 就能用了。
+
+**3.（可选）导入科研证据模式 v4 预设**
+
+DSH Desktop → 设置 → Agent 预设 → 导入，选择 [`presets/scientific-evidence-v4/scientific-evidence-en-mode-v4.dshpreset`](presets/scientific-evidence-v4/)。
+
+**更新**：`git pull` 后重新运行 `./cursor-kit/install.sh`，再重启 DSH。DSH 升级后如果 `/checkpoints` 不见了，也是重新运行一次安装脚本。
+
+**卸载**
+
+```bash
+./cursor-kit/uninstall.sh
+```
+
+然后重启 DSH。默认会保留已保存的检查点（在 `~/.dsh-cursor-kit/checkpoints/`）；想一并删除就加 `--purge`。卸载脚本不会删除你导入的预设。
+
 ---
 
 ## 1. cursor-kit：检查点回滚 + 改后自动 lint
